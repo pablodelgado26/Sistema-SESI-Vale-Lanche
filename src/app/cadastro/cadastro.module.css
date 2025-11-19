@@ -1,6 +1,7 @@
 .container {
   min-height: calc(100vh - 100px);
-  padding: 2rem 1rem;
+  padding: 1rem;
+  width: 100%;
 }
 
 .main {
@@ -8,24 +9,28 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .title {
   text-align: center;
   color: var(--sesi-blue);
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 0;
+  padding: 0 1rem;
 }
 
 .form {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .photoSection {
@@ -36,8 +41,8 @@
 }
 
 .photoPreview {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 12px;
   overflow: hidden;
   border: 3px solid var(--sesi-blue);
@@ -45,6 +50,7 @@
   align-items: center;
   justify-content: center;
   background: var(--background);
+  flex-shrink: 0;
 }
 
 .photoPreview img {
@@ -68,14 +74,16 @@
 .photoButton {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.25rem;
   background: var(--sesi-light-blue);
   color: white;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+  font-size: 0.95rem;
 }
 
 .photoButton:hover {
@@ -100,6 +108,8 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .formGroup input:focus,
@@ -116,17 +126,20 @@
 .qrCodeInput {
   display: flex;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .qrCodeInput input {
   flex: 1;
+  min-width: 0;
 }
 
 .scanButton {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
   background: var(--sesi-light-blue);
   color: white;
   border: none;
@@ -135,6 +148,8 @@
   cursor: pointer;
   transition: background 0.2s;
   white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.95rem;
 }
 
 .scanButton:hover {
@@ -143,19 +158,22 @@
 
 .scannerSection {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .scannerTitle {
   text-align: center;
   color: var(--sesi-blue);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 0;
+  padding: 0 1rem;
 }
 
 .scannerError {
@@ -170,20 +188,22 @@
 
 .formActions {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  width: 100%;
 }
 
 .submitButton,
 .cancelButton {
   flex: 1;
-  padding: 1rem;
+  padding: 0.875rem;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.2s;
+  min-width: 0;
 }
 
 .submitButton {
@@ -204,12 +224,97 @@
   opacity: 0.9;
 }
 
-@media (max-width: 600px) {
-  .form {
-    padding: 1.5rem;
+@media (max-width: 768px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  .main {
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .form,
+  .scannerSection {
+    padding: 1rem;
+  }
+  
+  .photoPreview {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .photoButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .formGroup label {
+    font-size: 0.95rem;
+  }
+  
+  .formGroup input,
+  .formGroup select {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+  
+  .scanButton {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .scanButton span {
+    display: none;
+  }
+  
+  .scanButton svg {
+    font-size: 1.2rem;
+  }
+  
+  .scannerTitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .form,
+  .scannerSection {
+    padding: 0.875rem;
+    gap: 1.25rem;
   }
   
   .formActions {
     flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .submitButton,
+  .cancelButton {
+    width: 100%;
+  }
+  
+  .qrCodeInput {
+    flex-direction: column;
+  }
+  
+  .scanButton {
+    width: 100%;
+    padding: 0.75rem;
+  }
+  
+  .scanButton span {
+    display: inline;
   }
 }
