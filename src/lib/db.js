@@ -2,12 +2,22 @@ import { PrismaClient } from '@prisma/client';
 import { withAccelerate } from '@prisma/extension-accelerate';
 
 const prismaClientSingleton = () => {
-  const client = new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  });
+  // Verifica se está usando Prisma Accelerate
+  const isAccelerate = process.env.DATABASE_URL?.includes('prisma+');
   
-  // Se estiver usando Prisma Accelerate, adiciona a extensão
-  if (process.env.DATABASE_URL?.includes('prisma+')) {
+  const config = {
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+  };
+  
+  // Se estiver usando Accelerate, precisa passar a URL explicitamente
+  if (isAccelerate) {
+    config.accelerateUrl = process.env.DATABASE_URL;
+  }
+  
+  const client = new PrismaClient(config);
+  
+  // Adiciona a extensão Accelerate se necessário
+  if (isAccelerate) {
     return client.$extends(withAccelerate());
   }
   
