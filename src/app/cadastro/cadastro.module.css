@@ -1,0 +1,215 @@
+.container {
+  min-height: calc(100vh - 100px);
+  padding: 2rem 1rem;
+}
+
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  text-align: center;
+  color: var(--sesi-blue);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.photoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.photoPreview {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--sesi-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+}
+
+.photoPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+}
+
+.photoPlaceholder svg {
+  font-size: 2rem;
+}
+
+.photoButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--sesi-light-blue);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.photoButton:hover {
+  background: var(--sesi-blue);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--sesi-blue);
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 0.75rem;
+  border: 2px solid var(--light-gray);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--sesi-blue);
+}
+
+.formGroup small {
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.qrCodeInput {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.qrCodeInput input {
+  flex: 1;
+}
+
+.scanButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--sesi-light-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.scanButton:hover {
+  background: var(--sesi-blue);
+}
+
+.scannerSection {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.scannerTitle {
+  text-align: center;
+  color: var(--sesi-blue);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.scannerError {
+  background: #fee;
+  border: 2px solid var(--error);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--error);
+  font-weight: 600;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submitButton,
+.cancelButton {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submitButton {
+  background: var(--sesi-blue);
+  color: white;
+}
+
+.submitButton:hover {
+  opacity: 0.9;
+}
+
+.cancelButton {
+  background: var(--light-gray);
+  color: var(--gray);
+}
+
+.cancelButton:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .form {
+    padding: 1.5rem;
+  }
+  
+  .formActions {
+    flex-direction: column;
+  }
+}

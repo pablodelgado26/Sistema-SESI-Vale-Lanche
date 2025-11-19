@@ -1,0 +1,44 @@
+.scannerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.qrReader {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qrReader video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.instruction {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.stopButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--error);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.stopButton:hover {
+  opacity: 0.9;
+}

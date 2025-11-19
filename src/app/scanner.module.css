@@ -1,0 +1,106 @@
+.container {
+  min-height: calc(100vh - 100px);
+  padding: 2rem 1rem;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  text-align: center;
+  color: var(--sesi-blue);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.startButton {
+  padding: 1rem 2rem;
+  background: var(--sesi-blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 0 auto;
+  display: block;
+}
+
+.startButton:hover {
+  background: var(--sesi-light-blue);
+}
+
+.scannerWrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  background: #fee;
+  border: 2px solid var(--error);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.error p {
+  color: var(--error);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.retryButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--error);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.retryButton:hover {
+  opacity: 0.9;
+}
+
+.resultWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.newScanButton {
+  padding: 1rem 2rem;
+  background: var(--sesi-light-blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newScanButton:hover {
+  background: var(--sesi-blue);
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    padding: 1rem 0.5rem;
+  }
+}

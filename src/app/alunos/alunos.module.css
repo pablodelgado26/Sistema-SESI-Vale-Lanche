@@ -1,0 +1,247 @@
+.container {
+  min-height: calc(100vh - 100px);
+  padding: 2rem 1rem;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  text-align: center;
+  color: var(--sesi-blue);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchBar {
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--light-gray);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--sesi-blue);
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter,
+.activeFilter {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--light-gray);
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.filter:hover {
+  border-color: var(--sesi-blue);
+  color: var(--sesi-blue);
+}
+
+.activeFilter {
+  background: var(--sesi-blue);
+  color: white;
+  border-color: var(--sesi-blue);
+}
+
+.bulkActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.giveAllButton,
+.removeAllButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.giveAllButton {
+  background: var(--success);
+  color: white;
+}
+
+.removeAllButton {
+  background: var(--error);
+  color: white;
+}
+
+.giveAllButton:hover,
+.removeAllButton:hover {
+  opacity: 0.9;
+}
+
+.studentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.studentCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.studentCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.studentPhoto img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--sesi-blue);
+}
+
+.noPhoto {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 2px solid var(--sesi-blue);
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray);
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.studentInfo {
+  flex: 1;
+}
+
+.studentInfo h3 {
+  margin: 0 0 0.25rem 0;
+  color: var(--sesi-blue);
+  font-size: 1.2rem;
+}
+
+.serie {
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.qrCode {
+  margin: 0.25rem 0 0 0;
+  color: var(--gray);
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+.studentActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.voucherAvailable,
+.voucherUsed {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.voucherAvailable {
+  background: var(--success);
+  color: white;
+}
+
+.voucherUsed {
+  background: var(--error);
+  color: white;
+}
+
+.voucherAvailable:hover,
+.voucherUsed:hover {
+  opacity: 0.9;
+}
+
+.deleteButton {
+  padding: 0.5rem 0.75rem;
+  background: var(--light-gray);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: var(--error);
+}
+
+.deleteButton:hover {
+  background: var(--error);
+  color: white;
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  color: var(--gray);
+}
+
+@media (max-width: 768px) {
+  .studentCard {
+    flex-wrap: wrap;
+  }
+  
+  .studentActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .voucherAvailable span,
+  .voucherUsed span {
+    display: none;
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpar Dados - SESI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            color: #003d7a;
+            margin-bottom: 1rem;
+        }
+        button {
+            padding: 1rem 2rem;
+            background: #e30613;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .success {
+            color: #10b981;
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+        .info {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Resetar Dados</h1>
+        <p class="info">Clique no botão abaixo para limpar os dados do localStorage e recriar os alunos de exemplo sem fotos.</p>
+        <button onclick="clearData()">Limpar e Resetar Dados</button>
+        <p class="success" id="success">✅ Dados resetados com sucesso! Recarregue a página principal.</p>
+    </div>
+
+    <script>
+        function clearData() {
+            // Limpar localStorage
+            localStorage.removeItem('sesi-students');
+            
+            // Mostrar mensagem de sucesso
+            document.getElementById('success').style.display = 'block';
+            
+            // Opcional: redirecionar após 2 segundos
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
