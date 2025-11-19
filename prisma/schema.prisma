@@ -1,0 +1,26 @@
+// Schema do Sistema SESI - Controle de Vale-Lanche
+// Suporta: MySQL, PostgreSQL, SQL Server
+// Altere o provider conforme seu banco na segunda-feira
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Altere para: "mysql", "postgresql" ou "sqlserver"
+}
+
+model Student {
+  id                String   @id @default(cuid())
+  name              String
+  serie             String   // Ex: "1º Ano A", "3º Ano EM B"
+  qrCode            String   @unique
+  photo             String?  @db.Text // Base64 da foto
+  hasVoucherToday   Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([qrCode])
+  @@index([serie])
+  @@map("students")
+}
