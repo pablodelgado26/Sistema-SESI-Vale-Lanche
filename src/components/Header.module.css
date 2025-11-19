@@ -57,6 +57,25 @@
   background: var(--sesi-light-blue);
 }
 
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.logoutButton:hover {
+  background: rgba(227, 6, 19, 0.8);
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -76,12 +95,18 @@
   }
   
   .link span,
-  .activeLink span {
+  .activeLink span,
+  .logoutButton span {
     display: none;
   }
   
   .link svg,
-  .activeLink svg {
+  .activeLink svg,
+  .logoutButton svg {
     font-size: 1.25rem;
+  }
+  
+  .logoutButton {
+    padding: 0.5rem 0.75rem;
   }
 }

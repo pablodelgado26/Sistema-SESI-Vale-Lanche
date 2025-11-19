@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from 'react';
 import { useStudents } from '@/contexts/StudentsContext';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import Header from '@/components/Header';
 import { FaCheckCircle, FaTimesCircle, FaTrash } from 'react-icons/fa';
 import styles from './alunos.module.css';
 
@@ -40,8 +42,10 @@ export default function AlunosPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
+    <ProtectedRoute>
+      <Header />
+      <div className={styles.container}>
+        <main className={styles.main}>
         <h1 className={styles.title}>Gerenciar Alunos</h1>
         
         <div className={styles.controls}>
@@ -154,7 +158,8 @@ export default function AlunosPage() {
             ))}
           </div>
         )}
-      </main>
-    </div>
+        </main>
+      </div>
+    </ProtectedRoute>
   );
 }

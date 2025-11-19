@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useStudents } from '@/contexts/StudentsContext';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import Header from '@/components/Header';
 import { FaCamera, FaQrcode } from 'react-icons/fa';
 import QRScanner from '@/components/QRScanner';
 import styles from './cadastro.module.css';
@@ -114,9 +116,11 @@ export default function CadastroPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Cadastrar Novo Aluno</h1>
+    <ProtectedRoute>
+      <Header />
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <h1 className={styles.title}>Cadastrar Novo Aluno</h1>
         
         {showScanner ? (
           <div className={styles.scannerSection}>
@@ -283,7 +287,8 @@ export default function CadastroPage() {
             </div>
           </form>
         )}
-      </main>
-    </div>
+        </main>
+      </div>
+    </ProtectedRoute>
   );
 }

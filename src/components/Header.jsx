@@ -1,12 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { FaQrcode, FaUsers, FaUserPlus } from 'react-icons/fa';
+import { usePathname, useRouter } from 'next/navigation';
+import { FaQrcode, FaUsers, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
+import { useAuth } from '@/contexts/AuthContext';
 import styles from './Header.module.css';
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/login');
+  };
 
   return (
     <header className={styles.header}>
@@ -38,6 +46,14 @@ export default function Header() {
             <FaUserPlus />
             <span>Cadastro</span>
           </Link>
+          <button 
+            onClick={handleLogout}
+            className={styles.logoutButton}
+            title="Sair"
+          >
+            <FaSignOutAlt />
+            <span>Sair</span>
+          </button>
         </nav>
       </div>
     </header>

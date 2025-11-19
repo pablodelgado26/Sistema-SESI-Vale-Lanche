@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import Header from '@/components/Header';
 import QRScanner from '@/components/QRScanner';
 import StudentCard from '@/components/StudentCard';
 import { useStudents } from '@/contexts/StudentsContext';
@@ -44,8 +46,10 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
+    <ProtectedRoute>
+      <Header />
+      <div className={styles.container}>
+        <main className={styles.main}>
         <h1 className={styles.title}>Scanner de Vale-Lanche</h1>
         
         {!showScanner && !scannedStudent && (
@@ -84,7 +88,8 @@ export default function Home() {
             </button>
           </div>
         )}
-      </main>
-    </div>
+        </main>
+      </div>
+    </ProtectedRoute>
   );
 }
